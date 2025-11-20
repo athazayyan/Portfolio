@@ -26,7 +26,7 @@ jobs:
         run: npm run build
       
       - name: Add CNAME file
-        run: echo 'athazayyan.me' > out/CNAM
+        run: echo 'athazayyan.me' > out/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
