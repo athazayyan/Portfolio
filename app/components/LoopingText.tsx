@@ -11,7 +11,7 @@ const LoopingText = ({ phrases }: Props) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % phrases.length);
-    }, 4700); // ganti setiap 4 detik
+    }, 4300); // ganti setiap 4 detik
     return () => clearInterval(timer);
   }, []);
 

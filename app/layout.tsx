@@ -1,5 +1,11 @@
 import "./globals.css";
 import localFont from "next/font/local";
+import SmoothScroll from './components/SmoothScrolling'; 
+import MusicPlayer from './components/MusicPlayer';  // ✅ Import
+
+
+
+
 
 export const ppNeueMachina = localFont({
   src: [
@@ -18,7 +24,13 @@ export const testSohne = localFont({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${ppNeueMachina.variable} ${testSohne.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+                <MusicPlayer />  
+
+      </body>
     </html>
   );
 }
