@@ -17,7 +17,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       scroll = new LocomotiveScroll({
         el: scrollRef.current,
         smooth: true,
-        smoothMobile: false,
         resetNativeScroll: true,
       });
     };
