@@ -1,65 +1,101 @@
+'use client';
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import LoopingText from "./components/LoopingText";
+
 
 export default function Home() {
+  const [active, setActive] = useState(0);
+
+  const profiles = [
+    "/profiles/profile1.png",
+    "/profiles/profile2.png",
+  ];
+   const phrases = [
+    "Telling cheerful stories",
+    "Exploring bioinformatics",
+    "Sometimes wrangling data",
+    "Occasionally building something",
+  ];
+
+
+ 
+
+  const handleProfileClick = () => {
+    setActive((prev) => (prev + 1) % profiles.length);
+  };
+
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+<div className="h-screen p-8 flex flex-col text-gray-800">
+      <section className=" flex flex-col gap-8">
+
+        <nav className="flex justify-between w-full" style={{ fontFamily: "var(--font-ppneue)", fontWeight: 800 }}>
+          <div className="w-fit">
+          {/* FIXED: Removed cursor-none class */}
+          <div 
+            className="relative w-18 h-18 rounded-lg overflow-hidden hover:border-2 hover:border-black  border border-gray-700 group"
+            onClick={handleProfileClick}
+            style={{
+              cursor: 'url(/profiles/markqstn.png) 16 16, pointer'
+            }}
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+  key={active}            // 👈 ini memaksa reload gambar baru
+  src={profiles[active]}
+  alt="Profile"
+  fill
+  className="object-cover transition-opacity duration-300 group-hover:opacity-70"
+  unoptimized             // opsional, biar tidak caching
+/>
+
+          </div>
         </div>
-      </main>
+            <div className="flex space-x-4">
+          <ul><a href="">Work</a></ul>
+          <ul><a href="">Collection</a></ul>
+          <ul><a href="">@nd?</a></ul>
+          </div>
+          <ul><a href="">Contact</a></ul>
+        </nav>
+
+        <div className="flex justify-between gap-8">
+        {/* kiri */}
+        <div>
+            <div className="-mb-5 mt-10 flex gap-4">
+        <LoopingText phrases={phrases}/>
+          <img src="\hero-sections\tandabutton.gif"  className="w-80 -ml-25 -mb-10 -mt-18" alt="" />
+          </div>
+          
+        <div className="relative mt-1">
+  <h1
+    className="text-8xl relative"
+    style={{
+      fontFamily: "var(--font-ppneue)",
+      fontWeight: 900,
+    }}
+  >
+    <span className="text-blue-700 relative inline-block">
+      <img
+        src="/assets/logo.png"
+        alt="logo at"
+        className="absolute top-6 left-5 w-40 hover:animate-spin hover:scale-125 transition-transform duration-300"
+      />
+      [
+    </span>
+    At<span className="text-blue-700">]</span>ha Zayyan
+  </h1>
+
+  {/* ⬇️ Pindahkan ke sini dan posisikan ke kiri */}
+  <div className="absolute -left-4 bottom-0 mt-4 text-sm bg-amber-800 text-white font-medium px-4 py-1 rounded-md">
+    Somewhere in Indonesia
+  </div>
+</div>
+        </div>
+        {/* kanan */}
+        <img src="/hero-sections/atha.gif" alt="Atha GIF" className="w-180 "/>
+        </div>
+      </section>
     </div>
   );
 }
