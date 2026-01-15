@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@iconify/react';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 550);
+    const handleResize = () => setIsMobile(window.innerWidth < 550);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const menuItems = [
     { 
@@ -44,8 +52,8 @@ const Navbar = () => {
       onMouseLeave={() => setOpen(false)}
       initial={false}
       animate={{
-        width: open ? 330 : 56, // Mengecil sedikit dari 340/64
-        height: open ? "auto" : 56,
+        width: open ? 330 : (isMobile ? 36 : 46), // Mengecil sedikit dari 340/64
+        height: open ? "auto" : (isMobile ? 36 : 46),
       }}
       transition={{ 
         type: "spring", 
@@ -55,9 +63,9 @@ const Navbar = () => {
       }}
       className="absolute sm:left-10 left-2 top-0 bg-white shadow-2xl overflow-hidden z-50 border-x border-b border-gray-200 origin-top rounded-b-[18px]"
     >
-      <div className="p-4 text-black">
+      <div className="p-2 sm:p-3 text-black">
         {/* Header HI! - Lebih kecil */}
-        <div className="flex items-center h-6 mb-1">
+        <div className="flex items-center h-4 mb-1">
           <span className=" text-lg  uppercase">HI!</span>
         </div>
 
@@ -86,7 +94,7 @@ const Navbar = () => {
                     >
                       {/* Teks Kiri - Dikecilkan sedikit */}
                       <div className="flex flex-col leading-none">
-                        <span className="text-[21px] font-[550] tracking-tight uppercase group-hover:underline transition-all">
+                        <span className="text-[21px] font-[650] tracking-tight uppercase group-hover:underline transition-all">
                           {item.title}
                         </span>
                         <span className="text-[9px] font-medium text-gray-400 mt-1.5 tracking-wide">
