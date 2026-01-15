@@ -61,7 +61,7 @@ const Navbar = () => {
         damping: 22, 
         mass: 1
       }}
-      className="absolute sm:left-10 left-2 top-0 bg-white shadow-2xl overflow-hidden z-50 border-x border-b border-gray-200 origin-top rounded-b-[18px]"
+      className="fixed sm:left-10 left-2 top-0 bg-white shadow-2xl overflow-hidden z-50 border-x border-b border-gray-200 origin-top rounded-b-[18px]"
     >
       <div className="p-2 sm:p-3 text-black">
         {/* Header HI! - Lebih kecil */}

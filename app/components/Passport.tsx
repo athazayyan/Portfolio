@@ -4,24 +4,24 @@ const Passport = () => {
   // Database konten untuk perubahan teks
   const bioContent: Record<string, { title: string; label: string; description: string }> = {
     default: {
-      title: "Hi There",
-      label: "In General",
-      description: "I Basically put love and passion into my works. Feel free to explore my portfolio."
+      title: "Greetings",
+      label: "Multidisciplinary Profile",
+      description: "I am dedicated to integrating creativity and technical precision into every project. Feel free to explore my diverse portfolio of work."
     },
     craftsman: {
-      title: "Craftsman",
-      label: "Web Design & Dev",
-      description: "Saya biasanya buat unik-unik, at least mencoba. Saya buka freelance web design and dev."
+      title: "Digital Craftsman",
+      label: "Web Design & Development",
+      description: "I specialize in developing unique, high-quality digital interfaces. Currently accepting freelance commissions for bespoke web design and development."
     },
     bioinformatic: {
-      title: "Bioinformatic",
-      label: "Research & Study",
-      description: "Saya sedang belajar bioinformatika, ada beberapa school assignment yang bisa saya kasih nampak."
+      title: "Bioinformatician",
+      label: "Computational Biology",
+      description: "Currently advancing my research in bioinformatics, with a focus on academic assignments involving genomic data analysis and visualization."
     },
     data: {
-      title: "Data Vis+Mining",
-      label: "Analyst Role",
-      description: "Saya suka Tableau + Power BI + D3.js. Terkadang saya mengulik ML dan DL."
+      title: "Data Specialist",
+      label: "Analytics & Mining",
+      description: "Proficient in Tableau, Power BI, and D3.js. I have a keen interest in data mining, frequently exploring Machine Learning and Deep Learning frameworks."
     }
   };
 
@@ -29,12 +29,12 @@ const Passport = () => {
   const [activeTab, setActiveTab] = useState('default');
 
   return (
-    <div className="absolute bg-[#b9cedf] sm:right-30 w-100 md:w-145 min-h-[580px] z-30 rounded-b-lg shadow-2xl m-auto flex flex-col overflow-hidden font-sans border border-white/20">
+    <div className="absolute bg-[#b9cedf] sm:right-40 w-100 md:w-145 min-h-[580px] z-30 rounded-b-lg shadow-2xl m-auto flex flex-col overflow-hidden font-sans border border-white/20 top-0">
       
       {/* BAGIAN ATAS (BIO PANEL) */}
       <div className="h-[40%] p-6 relative flex flex-col border-b border-blue-400/30 shrink-0 transition-all duration-300">
         {/* Nomor Passport Vertikal */}
-        <div className="absolute left-2 top-30 sm:top-12 -rotate-90 origin-left text-[10px] font-bold text-orange-500 tracking-widest opacity-80 uppercase">
+        <div className="absolute left-2 top-30 sm:top-27 sm:left-4 -rotate-90 origin-left text-[10px] font-bold text-orange-500 tracking-widest opacity-80 uppercase">
           No 12412121231
         </div>
 
@@ -123,6 +123,7 @@ const Passport = () => {
                 <p className="text-[11px] font-black text-gray-800 leading-none mt-1 uppercase">7.. Still Counting Lah</p>
               </div>
               <div className="text-right">
+                <p className="text-[8px] font-bold text-blue-400 uppercase leading-none">IDK Wht No Here</p>
                 <p className="text-[11px] font-black text-orange-500 italic mt-1 leading-none">13132</p>
               </div>
             </div>
@@ -133,6 +134,7 @@ const Passport = () => {
                 <p className="text-[11px] font-mono font-black text-gray-600 uppercase mt-1 leading-none">hmm123123</p>
               </div>
               <div className="text-right">
+                <p className="text-[8px] font-bold text-blue-400 uppercase leading-none">Status</p>
                 <p className="text-[11px] font-black text-gray-800 italic mt-1 leading-none">Active</p>
               </div>
             </div>
@@ -146,8 +148,8 @@ const Passport = () => {
 
         {/* MACHINE READABLE ZONE (MRZ) */}
         <div className="mt-auto bg-[#dbe6ef] px-3 py-2 rounded font-mono text-[11px] md:text-[12px] font-black text-gray-500 border border-black/5 tracking-wider leading-tight">
-          <p>P&lt;IDNATHA&lt;&lt;ZAYYAN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;713121</p>
-          <p>12412121231&lt;6IDN9501014M3001321&lt;&lt;&lt;&lt;&lt;&lt;&lt;06</p>
+          <p>P&lt;IDN&lt;ATHA&lt;&lt;ZAYYAN&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;713121</p>
+          <p>12412121231&lt;6IDN9501014M3001321&lt;&lt;&lt;&lt;&lt;&lt;&lt;07</p>
         </div>
       </div>
     </div>
