@@ -45,7 +45,7 @@ const Navbar = () => {
           <span className="text-xs sm:text-sm font-black tracking-widest uppercase">
             {open ? "Explore" : "Hi!"}
           </span>
-          <p>. .</p>
+         
         </div>
 
         <AnimatePresence>
