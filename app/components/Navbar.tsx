@@ -21,20 +21,19 @@ const Navbar = () => {
   ];
 
   return (
-  <motion.nav
+<motion.nav
   onClick={() => setOpen(true)}
   onMouseLeave={() => setOpen(false)}
   initial={false}
   animate={{
     width: open ? (isMobile ? "calc(100vw - 1rem)" : 320) : (isMobile ? 42 : 90),
     height: open ? 243 : (isMobile ? 42 : 70),
+    x: open && isMobile ? "50%" : 0,
   }}
   transition={{ type: "spring", stiffness: 180, damping: 22 }}
   className="
-    fixed left-10
-     -translate-x-1/2
-    sm:left-10 sm:translate-x-0
-    top-0 z-50
+    fixed top-0 left-2 sm:left-10
+    z-[9999]
     bg-[#f2f1e8]
     border-b-3 border-x-2 border-black
     rounded-b-xl shadow-[3px_0px_0px_rgba(0,0,0,0.25)]
