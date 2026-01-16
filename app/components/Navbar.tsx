@@ -27,7 +27,7 @@ const Navbar = () => {
       initial={false}
       animate={{
         width: open ? 320 : (isMobile ? 42 : 90),
-        height: open ? 250 : (isMobile ? 42 : 70),
+        height: open ? 245 : (isMobile ? 42 : 70),
       }}
       transition={{ type: "spring", stiffness: 180, damping: 22 }}
       className="
