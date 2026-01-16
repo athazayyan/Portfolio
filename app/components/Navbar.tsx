@@ -22,24 +22,22 @@ const Navbar = () => {
 
   return (
 <motion.nav
-  onClick={() => setOpen(true)}
-  onMouseLeave={() => setOpen(false)}
-  initial={false}
-  animate={{
-    width: open ? (isMobile ? "calc(100vw - 1rem)" : 320) : (isMobile ? 42 : 90),
-    height: open ? 243 : (isMobile ? 42 : 70),
-    x: open && isMobile ? "50%" : 0,
-  }}
-  transition={{ type: "spring", stiffness: 180, damping: 22 }}
-  className="
-    fixed top-0 left-2 sm:left-10
-    z-[9999]
-    bg-[#f2f1e8]
-    border-b-3 border-x-2 border-black
-    rounded-b-xl shadow-[3px_0px_0px_rgba(0,0,0,0.25)]
-    overflow-hidden origin-top
-  "
->
+      onClick={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      initial={false}
+      animate={{
+        width: open ? 320 : (isMobile ? 42 : 90),
+        height: open ? 245 : (isMobile ? 42 : 70),
+      }}
+      transition={{ type: "spring", stiffness: 180, damping: 22 }}
+      className="
+        fixed left-3 sm:left-10 top-0 z-50
+        bg-[#f2f1e8]
+        border-b-3 border-x-2 border-black
+        rounded-b-xl shadow-[3px_0px_0px_rgba(0,0,0,0.25)]
+        overflow-hidden origin-top
+      "
+    >
       <div className="p-2 sm:p-3">
 
         {/* Header */}
