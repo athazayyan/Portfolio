@@ -29,9 +29,20 @@ const Passport = () => {
   const [activeTab, setActiveTab] = useState('default');
 
   return (
-    <div className="absolute  w-full sm:top-0 sm:right-33 top-0 max-w-[95%] sm:max-w-100 md:max-w-145 min-h-145 mx-auto rounded-b-xl shadow-[4px_2px_0px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden border-b-4 border-black border-l-2 border-r-2 passport z-50 pointer-events-none" id='passport' > 
-      
-      {/* BAGIAN ATAS (BIO PANEL) */}
+   
+<div
+  className="
+    absolute top-0 left-1/2 -translate-x-1/2
+    w-[95vw] max-w-[380px] sm:max-w-[520px] md:max-w-[640px]
+    min-h-145
+    rounded-b-xl
+    shadow-[4px_2px_0px_rgba(0,0,0,0.1)]
+    flex flex-col overflow-hidden
+    border-b-4 border-black border-l-2 border-r-2
+    passport z-50 pointer-events-none
+  "
+  id="passport"
+>
       <div className="min-h-60 p-4 sm:p-6 relative flex flex-col border-b-4 border-black shrink-0 transition-all duration-300 ">
        
         
