@@ -79,7 +79,7 @@ export default function Home() {
 
         {/* Layer 3: Clickable Profil (Z-index 30) */}
         <div 
-          className="absolute z-60 right-8 top-18 sm:right-20 sm:top-16 md:right-20 md:top-24"
+          className="absolute z-60 right-8 top-8 sm:right-20 sm:top-16 md:right-20 md:top-24"
           data-scroll
           data-scroll-speed="1.5"
         >
