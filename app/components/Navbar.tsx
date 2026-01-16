@@ -32,7 +32,7 @@ const Navbar = () => {
   transition={{ type: "spring", stiffness: 180, damping: 22 }}
   className="
     fixed
-    left-1/2 -translate-x-1/2
+     -translate-x-1/2
     sm:left-10 sm:translate-x-0
     top-0 z-50
     bg-[#f2f1e8]
