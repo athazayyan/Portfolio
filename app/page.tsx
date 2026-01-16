@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import { Icon } from "@iconify/react";
 import Passport from "./components/Passport";
-import { Boardingpass } from "./components/Boardingpass";
+import Boardingpass from "./components/Boardingpass";
 import FloatingCursors from "./components/FloatingCursor";
 
 export default function Home() {
@@ -12,10 +12,17 @@ export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const profiles = [
-    "/profiles/profile1.png",
-    "/profiles/profile2.png",
     "/profiles/profile3.png",
     "/profiles/profile4.png",
+    "/profiles/profile5.jpeg",
+    "/profiles/profile6.jpeg",
+    "/profiles/profile7.jpeg",
+    "/profiles/profile8.jpeg",
+    "/profiles/profile9.jpeg",
+    "/profiles/profile11.gif",
+    "/profiles/profile10.jpeg",
+
+
   ];
 
   useEffect(() => {
@@ -43,7 +50,7 @@ export default function Home() {
   };
 
   return (
-    <main ref={scrollRef} data-scroll-container className="bg-[#F1F1F0] w-full">
+    <main ref={scrollRef} data-scroll-container className=" w-full ">
       <Navbar />
       
       {/* SECTION 1: HERO (KEMBALI KE LAYOUT SEMULA) */}
@@ -58,18 +65,21 @@ export default function Home() {
       
 
         {/* Layer 2: Paspor & Boardingpass (Z-index 20) */}
-        <div 
-          className="relative z-20 flex items-center justify-center h-full"
-          data-scroll
-          data-scroll-speed="-1"
-        >
-          <Passport />
+       <div 
+  className="relative z-50 flex items-center justify-center h-full pointer-events-none"
+  data-scroll
+  data-scroll-speed="-1"
+>
+  <div className="pointer-events-auto">
+    <Passport />
+  </div>
+</div>
+
           <Boardingpass />
-        </div>
 
         {/* Layer 3: Clickable Profil (Z-index 30) */}
         <div 
-          className="absolute z-30 right-8 top-18 sm:right-20 sm:top-16 md:right-20 md:top-24"
+          className="absolute z-60 right-8 top-18 sm:right-20 sm:top-16 md:right-20 md:top-24"
           data-scroll
           data-scroll-speed="1.5"
         >
@@ -99,7 +109,7 @@ export default function Home() {
 
       {/* SECTION 2: CONTENT (Stacking Effect) */}
       <section 
-        className="min-h-screen bg-white relative z-40 flex flex-col items-center justify-center p-8 sm:p-20 shadow-[0_-30px_60px_rgba(0,0,0,0.15)] rounded-t-4xl"
+        className="min-h-screen relative z-10 flex flex-col items-center justify-center p-8 sm:p-20  rounded-t-4xl"
         data-scroll-section
       >
         <div className="w-full max-w-6xl text-black">

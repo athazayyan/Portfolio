@@ -14,59 +14,38 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { 
-      title: "Collection", 
-      sub: "作品集 | المعرض", 
-      link: "#", 
-      icons: ["ph:pencil-line-bold", "ph:stack-bold"], 
-      arrow: "ph:arrow-right-bold" 
-    },
-    { 
-      title: "Work", 
-      sub: "项目 | الأعمال", 
-      link: "#", 
-      icons: ["ph:git-branch-bold", "ph:dots-three-circle-fill", "ph:briefcase-bold"], 
-      arrow: "ph:arrow-right-bold" 
-    },
-    { 
-      title: "Contact", 
-      sub: "关于我 | نبذة عني", 
-      link: "#", 
-      icons: ["ph:envelope-fill"], 
-      isSpecial: false,
-      arrow: "ph:arrow-left-bold" 
-    },
-    { 
-      title: "About", 
-      sub: "联系 | تواصل", 
-      link: "#", 
-      icons: ["ph:user-focus-fill"], 
-      isSpecial: false, 
-      arrow: "ph:arrow-down-bold" 
-    }
+    { title: "Collection", sub: "作品集 | المعرض", link: "#", icons: ["ph:pencil-line-bold"], arrow: "ph:arrow-right-bold" },
+    { title: "Work", sub: "项目 | الأعمال", link: "#", icons: ["ph:briefcase-bold"], arrow: "ph:arrow-right-bold" },
+    { title: "About", sub: "关于我 | نبذة عني", link: "#", icons: ["ph:user-focus-fill"], arrow: "ph:arrow-down-bold" },
+    { title: "Contact", sub: "联系 | تواصل", link: "#", icons: ["ph:envelope-fill"], arrow: "ph:arrow-left-bold" }
   ];
 
   return (
     <motion.nav
-      onMouseEnter={() => setOpen(true)}
+      onClick={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       initial={false}
       animate={{
-        width: open ? 330 : (isMobile ? 36 : 46), // Mengecil sedikit dari 340/64
-        height: open ? "auto" : (isMobile ? 36 : 46),
+        width: open ? 320 : (isMobile ? 42 : 90),
+        height: open ? 250 : (isMobile ? 42 : 70),
       }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 180, 
-        damping: 22, 
-        mass: 1
-      }}
-      className="fixed sm:left-10 left-2 top-0 bg-white shadow-2xl overflow-hidden z-50 border-x border-b border-gray-200 origin-top rounded-b-[18px]"
+      transition={{ type: "spring", stiffness: 180, damping: 22 }}
+      className="
+        fixed left-2 sm:left-10 top-0 z-50
+        bg-[#f2f1e8]
+        border-b-3 border-x-2 border-black
+        rounded-b-xl shadow-[3px_0px_0px_rgba(0,0,0,0.25)]
+        overflow-hidden origin-top
+      "
     >
-      <div className="p-2 sm:p-3 text-black">
-        {/* Header HI! - Lebih kecil */}
-        <div className="flex items-center h-4 mb-1">
-          <span className=" text-lg  uppercase">HI!</span>
+      <div className="p-2 sm:p-3">
+
+        {/* Header */}
+        <div className="flex items-center justify-between border-b-2 border-black pb-1 mb-2">
+          <span className="text-xs sm:text-sm font-black tracking-widest uppercase">
+            {open ? "Explore" : "Hi!"}
+          </span>
+          <p>. .</p>
         </div>
 
         <AnimatePresence>
@@ -75,55 +54,48 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "circOut" }}
+              transition={{ duration: 0.35 }}
             >
-              <hr className="border-black border-t-2 my-2" />
-              
-              <ul className="flex flex-col">
+              <ul className="flex flex-col gap-2 mt-2">
                 {menuItems.map((item, i) => (
-                  <motion.li 
+                  <motion.li
                     key={i}
                     initial={{ x: -10, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.05 + 0.1 }}
-                    className="border-b border-black last:border-0"
+                    transition={{ delay: i * 0.05 }}
                   >
-                    <a 
-                      href={item.link} 
-                      className="group flex items-center justify-between py-4 hover:bg-gray-50 transition-colors px-1"
+                    <a
+                      href={item.link}
+                      className="
+                        group flex items-center justify-between
+                         border-b border-black
+                        px-1 py-1
+                        
+                        hover:bg-blue-100 transition
+                      "
                     >
-                      {/* Teks Kiri - Dikecilkan sedikit */}
-                      <div className="flex flex-col leading-none">
-                        <span className="text-[21px] font-[650] tracking-tight uppercase group-hover:underline transition-all">
+                      {/* Kiri */}
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-sm font-bold uppercase">
                           {item.title}
                         </span>
-                        <span className="text-[9px] font-medium text-gray-400 mt-1.5 tracking-wide">
+                        <span className="text-[9px] text-gray-600 tracking-wide">
                           {item.sub}
                         </span>
                       </div>
-                      
-                      {/* Ikon Kanan - Container dikecilkan ke w-8/h-8 */}
-                      <div className="flex items-center gap-3">
-                        <div className="flex gap-2 items-center">
-                          {item.icons?.map((iconName, idx) => (
-                            <div 
-                              key={idx} 
-                              className={`flex items-center justify-center w-8 h-8 transition-all ${
-                                item.isSpecial 
-                                ? "bg-black text-white rounded-md" 
-                                : "text-black"
-                              }`}
-                            >
-                              <Icon 
-                                icon={iconName} 
-                                className={item.isSpecial ? "text-[18px]" : "text-[24px]"} 
-                              />
-                            </div>
-                          ))}
-                        </div>
-                        {/* Panah Navigasi - Lebih ramping */}
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          <Icon icon={item.arrow} className="text-xl text-black" />
+
+                      {/* Kanan */}
+                      <div className="flex items-center gap-2">
+                        {item.icons.map((ic, idx) => (
+                          <div
+                            key={idx}
+                            className="w-7 h-7 flex items-center justify-center border-2 border-black bg-[#f1c40f]"
+                          >
+                            <Icon icon={ic} className="text-sm" />
+                          </div>
+                        ))}
+                        <div className="w-6 h-6 flex items-center justify-center rounded-full border-2 border-black bg-white">
+                          <Icon icon={item.arrow} className="text-xs" />
                         </div>
                       </div>
                     </a>
