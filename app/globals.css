@@ -11,6 +11,11 @@ html.has-scroll-smooth {
     left: 0; right: 0; top: 0; bottom: 0;
 }
 
+.passport-cover {
+  background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+  background-color: #4A1D1D; /* Warna paspor RI */
+}
+
 [data-scroll-container] {
     perspective: 1px;
 }

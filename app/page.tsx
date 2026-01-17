@@ -6,6 +6,8 @@ import { Icon } from "@iconify/react";
 import Passport from "./components/Passport";
 import Boardingpass from "./components/Boardingpass";
 import FloatingCursors from "./components/FloatingCursor";
+import HighlightSection from "./components/HighlightSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [active, setActive] = useState(0);
@@ -37,12 +39,12 @@ export default function Home() {
             lerp: 0.07, // Sedikit lebih responsif
             multiplier: 1,
           });
-          setTimeout(() => { locomotiveScroll.update(); }, 1000);
+          setTimeout(() => { locomotiveScroll?.update(); }, 1000);
         }
       } catch (error) { console.error(error); }
     };
     initScroll();
-    return () => { if (locomotiveScroll) locomotiveScroll.destroy(); };
+    return () => { if (locomotiveScroll) locomotiveScroll?.destroy(); };
   }, []);
 
   const handleProfileClick = () => {
@@ -79,7 +81,7 @@ export default function Home() {
 
         {/* Layer 3: Clickable Profil (Z-index 30) */}
         <div 
-          className="absolute z-60 right-8 top-8 sm:right-20 sm:top-16 md:right-20 md:top-24"
+          className="absolute z-60 right-8 top-8 sm:right-15 sm:top-10 md:right-15 md:top-20"
           data-scroll
           data-scroll-speed="1.5"
         >
@@ -107,24 +109,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: CONTENT (Stacking Effect) */}
-      <section 
-        className="min-h-screen relative z-10 flex flex-col items-center justify-center p-8 sm:p-20  rounded-t-4xl"
-        data-scroll-section
-      >
-        <div className="w-full max-w-6xl text-black">
-          <h2 className="text-6xl font-black italic mb-10 text-center uppercase">Selected Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200">Project 01</div>
-            <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200">Project 02</div>
-          </div>
-        </div>
-      </section>
+      <HighlightSection></HighlightSection>
 
-      {/* FOOTER */}
-      <section className="h-[40vh] bg-black flex items-center justify-center" data-scroll-section>
-        <h2 className="text-white text-4xl font-bold opacity-30">ATHA ZAYYAN</h2>
-      </section>
     </main>
   );
 }
