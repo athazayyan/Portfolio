@@ -1,13 +1,10 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Navbar from "./components/Navbar";
-import { Icon } from "@iconify/react";
 import Passport from "./components/Passport";
 import Boardingpass from "./components/Boardingpass";
 import FloatingCursors from "./components/FloatingCursor";
 import HighlightSection from "./components/HighlightSection";
-import Footer from "./components/Footer";
 
 export default function Home() {
   const [active, setActive] = useState(0);
@@ -52,8 +49,9 @@ export default function Home() {
   };
 
   return (
+    <>        
+
     <main ref={scrollRef} data-scroll-container className=" w-full ">
-      <Navbar />
       
       {/* SECTION 1: HERO (KEMBALI KE LAYOUT SEMULA) */}
       <section 
@@ -112,5 +110,6 @@ export default function Home() {
       <HighlightSection></HighlightSection>
 
     </main>
+    </>
   );
 }

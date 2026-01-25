@@ -101,7 +101,7 @@ const Passport: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               className="flex flex-col w-full h-full passport-bg"
-            >
+            > 
               {isMobile && (
                 <div className="absolute top-2 right-4 text-[10px] font-bold text-gray-400 z-10">
                   TAP ANYWHERE

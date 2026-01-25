@@ -19,7 +19,7 @@ const FloatingCursors = () => {
   const [clickedId, setClickedId] = useState<number | null>(null);
 
   useEffect(() => {
-    const total = 60;
+    const total = 30;
     const cols = 10;
     const rows = 6;
 
